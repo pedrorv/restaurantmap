@@ -1,0 +1,159 @@
+/* referência footer http://jsfiddle.net/webtiki/h9mHc/ */ 
+
+html {
+    position: relative;
+    min-height: 100%;
+    background: #e3e3e3;
+}
+
+header {
+    background: linear-gradient(#6792ee, #a3bcff);
+    height: 185px;
+}
+
+body {
+    padding: 0;
+}
+
+footer {
+    background: #bebebe;
+    color: #fff;
+    width: 100%;
+    height: 86px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+footer p {
+    margin: 0;
+}
+
+div.right p {
+    line-height: 86px;
+}
+
+div.container {
+    width: 85%;
+    margin: 0 auto;
+}
+
+div.left, div.right {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    width: 50%;
+    float: left;
+}
+
+div.right {
+    text-align: right;
+}
+
+div.left p {
+    margin-top: 25px;
+}
+
+div#map-ui-container {
+    width: 100%;
+    position: absolute;
+    top: 100px;
+}
+
+div#map-holder {
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
+    clear: both;
+    white-space: nowrap;
+    box-shadow: 3px 3px 5px #444;
+}
+
+div#map {
+    position: relative;
+    width: 100%;
+    display: inline-block;
+    transition: width 0.3s ease;
+}
+
+div#map.shrink {
+    width: 70%;
+}
+
+div#window {
+    width: 30%;
+    display: inline-block;
+    background-color: #fff;
+    vertical-align: top;
+    margin-left: -4px !important; /*fix weird inline-block elements spacing between*/
+}
+
+div#map, div#window {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ui-view {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}
+
+div.form-specs-container p {
+    font-size: 20px;
+    color: gray;
+    text-align: center;
+}
+
+div.button-center {
+    display: flex;
+    justify-content: center;
+}
+
+p.location-alert {
+    transition: color 0.3s ease;
+}
+
+p.warning {
+    color: red !important;
+}
+
+div#error-messages {
+    background-color: #f2dede;
+    color: #a94442;
+    border: 2px solid #DC7775;
+    position: absolute;
+    top: 30px;
+    left: 5%;
+    z-index: 300;
+    padding: 10px 20px;
+    display: none;
+    font-size: 12px;
+    display: hidden;
+    border-radius: 10px;
+}
+
+div#error-messages p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+div#error-messages h2 {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+div#error-messages.show {
+    display: block;
+}

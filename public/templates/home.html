@@ -1,0 +1,27 @@
+<md-toolbar class="md-primary">
+    <div class="container">
+        <h2 class="md-toolbar-tools"><span>Novo Restaurante</span><span class="close-button" ng-click="closeContentBox()">X</span></h2>
+    </div>
+</md-toolbar>
+
+<div class="container">
+    <form ng-submit="homeCtrl.addRestaurant()">
+        <md-input-container class='md-block'>
+            <label>Nome</label>
+            <input ng-model="newRestaurant.name" required pattern=".{3,30}" title="O nome deve conter entre 3 e 30 caracteres.">
+        </md-input-container>
+        <md-input-container class='md-block'>
+            <label>Categoria</label>
+            <input ng-model="newRestaurant.category" required pattern=".{3,30}" title="A categoria deve conter entre 3 e 30 caracteres.">
+        </md-input-container>
+
+        <div class="form-specs-container">
+            <p class="location-alert" ng-show="newRestaurant.latitude === undefined">Clique no mapa para <br> escolher o local do restaurante.</p>
+            <p ng-show="newRestaurant.latitude">Latitude: {{newRestaurant.latitude}} <br> Longitude: {{newRestaurant.longitude}}</p>
+        </div>
+
+        <div class="button-center">
+            <md-button type="submit" md-no-ink class="md-raised md-primary">Salvar</md-button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,83 @@
+<div id="restaurant-view-wrapper" ng-cloak>
+  <md-content>
+    <md-toolbar class="md-primary">
+        <div class="container">
+            <h2 class="md-toolbar-tools"><span>{{ restaurant.name }}</span><span class="close-button" ng-click="closeContentBox()">X</span></h2>
+        </div>
+    </md-toolbar>
+    <md-tabs md-border-bottom md-selected="restCtrl.currentTab">
+      <md-tab label="Sobre" id="restaurant-about" ui-sref="restaurant({id: restCtrl.restaurantId})">
+          <div ng-if="restaurant">
+            <div class="container">
+              <p class="restaurant-info">{{ restaurant.name }}</p>
+              <p class="restaurant-info">{{ restaurant.category }}</p>
+              <p class="restaurant-info">Local: {{restaurant.latitude | number}} x {{restaurant.longitude | number}}</p>
+              <div class="rating-container">
+                <div class="full-star" ng-repeat="star in restCtrl.getArrayOfSize(restaurant.rating) track by $index"></div>
+                <div class="empty-star" ng-repeat="emptyStar in restCtrl.getArrayOfSize(5, restaurant.rating) track by $index"></div>
+              </div>
+            </div>
+          </div>
+      </md-tab>
+      <md-tab label="Comentários" id="restaurant-comments" ui-sref="restaurant-comments({id: restCtrl.restaurantId})">
+        <div class="comments-container" ng-if="restCtrl.restaurantComments.length">
+          <div ng-repeat="comment in restCtrl.restaurantComments" ng-click="restCtrl.toggleFilter(comment.id)"
+               ng-class="(!comment.filterText && comment.content.length > restCtrl.truncateToSize) ? 'comment-container grow' : 'comment-container'">
+            <div class="comment-text">
+              <p ng-bind-html="restCtrl.renderHtml(comment.content | truncateString: restCtrl.truncateToSize:comment.filterText)"></p>
+            </div>
+            <div class="comment-ratings">
+              <p>Atendimento</p>
+              <div class="comment-rating-container">
+                <div class="full-star comment-stars" ng-repeat="star in restCtrl.getArrayOfSize(comment.service) track by $index"></div>
+                <div class="empty-star comment-stars" ng-repeat="emptyStar in restCtrl.getArrayOfSize(5, comment.service) track by $index"></div>
+              </div>
+              <p>Comida</p>
+              <div class="comment-rating-container">
+                <div class="full-star comment-stars" ng-repeat="star in restCtrl.getArrayOfSize(comment.food) track by $index"></div>
+                <div class="empty-star comment-stars" ng-repeat="emptyStar in restCtrl.getArrayOfSize(5, comment.food) track by $index"></div>
+              </div>
+              <p>Preço</p>
+              <div class="comment-rating-container">
+                <div class="full-star comment-stars" ng-repeat="star in restCtrl.getArrayOfSize(comment.price) track by $index"></div>
+                <div class="empty-star comment-stars" ng-repeat="emptyStar in restCtrl.getArrayOfSize(5, comment.price) track by $index"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div ng-if="!restCtrl.restaurantComments.length">
+          <div class="container">
+            <div class="warning-text">
+              <h3>Nenhum comentário encontrado<br> para este restaurante.</h3>
+            </div>
+          </div>
+        </div>
+      </md-tab>
+    </md-tabs>
+  </md-content>
+</div>
+<div class="new-restaurant-container" ng-if="restCtrl.currentTab">
+  <p class="new-comment-button" ng-click="restCtrl.toggleNewCommentForm()">Avalie este restaurante!</p>
+  <div class="form-container">
+    <form ng-submit="restCtrl.addComment()">
+      <div class="ratings-container">
+        <div class="comment-rating">
+         <input-stars max="5" ng-model="restCtrl.newComment.service"></input-stars>
+         <p class="ratings-label">Atendimento</p>
+        </div>
+        <div class="comment-rating">
+          <input-stars max="5" ng-model="restCtrl.newComment.food"></input-stars>
+          <p class="ratings-label">Comida</p>
+        </div>
+        <div class="comment-rating">
+          <input-stars max="5" ng-model="restCtrl.newComment.price"></input-stars>
+          <p class="ratings-label">Preço</p>
+        </div>
+      </div>
+      <md-input-container>
+        <input class="new-comment-form" type="text" ng-model="restCtrl.newComment.content" placeholder="Comentário" required pattern=".{3,300}" title="O comentário deve conter entre 3 e 300 caracteres.">        
+      </md-input-container>
+      <button class="new-comment-submit" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>  
+    </form>
+  </div>
+</div>

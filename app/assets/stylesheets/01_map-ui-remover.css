@@ -1,0 +1,16 @@
+/* 
+    A princípio não é permitido remover aqueles links de termos de uso e logo do google,
+    fazendo apenas para manter as especificações do layout.
+    http://stackoverflow.com/questions/2553904/removing-the-google-maps-api-premier-terms-of-use-logo-etc-links
+*/
+
+/*======= Map Styling ============*/
+.gmnoprint a, .gmnoprint span, .gm-style-cc {
+    display:none;
+}
+.gmnoprint div {
+    background:none !important;
+}
+.gm-style div a img{
+    display:none;
+}

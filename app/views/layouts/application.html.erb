@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Restaurant Map Inc.</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+  <script src='//maps.googleapis.com/maps/api/js'></script>
+</head>
+<body ng-app="restaurantMap">
+  <header></header>
+
+  <div id="error-messages"></div>  
+  
+  <div id="map-ui-container" ng-controller="MainController">
+    <div id="map-holder">
+        <div id="map">
+          <ui-gmap-google-map center='map.center' zoom='map.zoom' options='map.options' events='map.events'>
+            <ui-gmap-markers models="restaurants" coords="'self'" icon="'icon'" events="map.markersEvents">
+            </ui-gmap-markers>
+
+            <ui-gmap-marker ng-if="currentPosition" idKey="'user-position'"
+                            coords="currentPosition" options="userOptions"></ui-gmap-marker> 
+          </ui-gmap-google-map>
+
+          <md-button class="md-fab new-restaurant" ng-click="openAddRestaurantBox()">+</md-button>
+        </div>
+        <div id="window">
+          <ui-view></ui-view>
+        </div>
+    </div>
+  </div>
+    
+  <footer>
+    <div class="container">
+      <div class="left">
+        <p>Restaurant Map Inc. <br> Os melhores restaurantes da cidade.</p>
+      </div>
+      <div class="right">
+        <p>2016 &copy; Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

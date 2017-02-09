@@ -1,0 +1,37 @@
+/* <input-star></input-star> directive */
+.angular-input-stars {
+	
+	display: inline-block;
+	padding: 0;
+	margin: 5px 0px 5px -5px;
+	list-style: none;
+	
+
+}
+
+.angular-input-stars > li {
+		
+	font-size: 17px;
+
+	display: inline-block;
+	/*padding-right: 5px;
+	padding-left: 5px;*/
+	cursor: pointer;
+	color: #e4ac01;
+
+}
+
+.angular-input-stars > li i.readonly {
+	cursor: not-allowed;
+}
+
+.angular-input-stars > li .active {
+
+		color: #e4ac01;
+		/*text-shadow: black 0 0 1px, 0 0 1px ;	*/
+
+}
+
+/*.angular-input-stars > li .active.angular-input-stars-hover {
+	text-shadow: black 0 0 3px;
+}*/

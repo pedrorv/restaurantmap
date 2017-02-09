@@ -1,0 +1,173 @@
+div.full-star, div.empty-star {
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: inline-block;
+}
+
+div.full-star {
+    background-image: url("../images/full_star.png");
+}
+
+div.empty-star {
+    background-image: url("../images/empty_star.png");
+}
+
+div#restaurant-view-wrapper {
+    height: 100%;
+}
+
+div.rating-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+p.restaurant-info {
+    font-size: 20px;
+    margin: 5px 0;
+    color: gray;
+}
+
+p.restaurant-info:first-child {
+    margin-top: 30px;
+}
+
+div.comment-container {
+    border-top: 1px solid #eee;
+    white-space: nowrap;
+    padding: 5px;
+    cursor: pointer;
+    transition: padding 0.3s ease;
+}
+
+div.comment-container.grow {
+    padding: 15px 5px;
+}
+
+div.comment-container:last-child {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+div.comment-text, div.comment-ratins {
+    box-sizing: border-box;
+}
+
+div.comment-text {
+    width: 75%;
+    padding: 10px;
+    vertical-align: middle;
+    white-space: normal;
+    color: #aaa;
+}
+
+div.comment-ratings {
+    width: 25%;
+    text-align: right;
+    color: #7693fb;
+    margin-left: -4px;
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+div.comment-text p, div.comment-ratings p {
+    margin: 0;
+}
+
+div.comment-text, div.comment-ratings {
+    display: inline-block;
+}
+
+div.comment-stars {
+    width: 15px;
+    height: 15px;
+}
+
+div.warning-text {
+    margin-top: 30px;
+    text-align: center;
+    color: #ccc;
+}
+
+div.new-restaurant-container {
+    text-align: center;
+    position: absolute;
+    bottom: -140px;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    transition: bottom 0.3s ease;
+}
+
+div.new-restaurant-container.open {
+    bottom: 0;
+}
+
+p.new-comment-button {
+    color: #7693fb;
+    font-size: 14px;
+    background-color: #d1dbf6;
+    padding: 10px 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: inline-block;
+    cursor: pointer;
+    margin: 0;
+}
+
+div.form-container {
+    width: 100%;
+    height: 140px;
+    background-color: #d1dbf6;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+div.form-container md-input-container {
+    text-align: left;
+    width: 90%;
+    display: inline-block;
+    margin: 10px 5px;
+    box-sizing: border-box;
+}
+
+i.fa-paper-plane {
+    color: #777;
+    font-size: 25px;
+}
+
+div.form-container p {
+    margin: 0;
+}
+
+button.new-comment-submit {
+    border: none;
+    background-color: #d1dbf6;
+    padding: 0;
+    margin: 0;
+}
+
+div.ratings-container {
+    display: block;
+    position: relative;
+    width: 100%;
+}
+
+div.comment-rating {
+    display: inline-block;
+    width: 33%;
+    color: #7693fb;
+    font-size: 14px;
+}
+
+div.comment-rating p {
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+span.comment-see-more {
+    color: #7693fb;
+    text-decoration: underline;
+}

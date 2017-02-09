@@ -1,0 +1,44 @@
+button.md-fab.new-restaurant {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  line-height: 4.0rem;
+  min-width: 0;
+  width: 4.0rem;
+  height: 4.0rem;
+  border-radius: 50%;
+  text-align: center;
+  background-color: #2752ba;
+  color: white;
+  font-size: 45px;
+  font-weight: 300;
+  cursor: pointer;
+  box-shadow: 3px 3px 5px #444;
+}
+
+button.md-fab.new-restaurant:hover {
+  background-color: #00066E !important;
+}
+
+md-input-container {
+  margin-top: 30px;
+}
+
+.md-toolbar-tools {
+  position: relative;
+  padding: 0;
+  color: #fff;
+}
+
+md-content {
+  height: 100%;
+}
+
+md-tabs {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin-top: 62px;
+}
